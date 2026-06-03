@@ -4,8 +4,6 @@ RoverForge Arena is a Panda3D simulation where a rover navigates a warehouse-sty
 obstacles, collects targets, and records episode metrics. The simulation can run with a Panda3D
 window for interactive inspection or headlessly for batch evaluation.
 
-The code is split so the simulation loop, agents, rendering, native extension hook, and command-line
-tools can evolve independently.
 
 ## Features
 
