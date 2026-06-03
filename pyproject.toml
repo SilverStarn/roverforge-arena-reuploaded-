@@ -1,0 +1,24 @@
+[project]
+name = "roverforge-arena"
+version = "0.1.0"
+description = "A Panda3D rover simulation with manual play, autonomous agents, and headless evaluation."
+requires-python = ">=3.10"
+dependencies = [
+  "panda3d==1.10.15"
+]
+
+[project.scripts]
+roverforge = "game.main:main"
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.11.0",
+  "mypy>=1.15.0"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,31 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Panda3D / runtime output
+*.bam
+*.egg
+*.log
+episode_logs/
+screenshots/
+
+# Native build outputs
+cpp/build/
+*.dll
+*.dylib
+*.so
+*.lib
+*.exp
+*.obj
+
+# Editor and OS noise
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store

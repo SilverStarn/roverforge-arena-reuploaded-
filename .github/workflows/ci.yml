@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install ruff
+
+      - name: Lint
+        run: python -m ruff check .
+
+      - name: Run tests
+        run: python -m unittest discover -v
+
+      - name: Compile package
+        run: python -m compileall -q game tests
+
+      - name: CLI smoke checks
+        run: |
+          python -m game.main eval --episodes 2 --seed 7 --max-steps 900
+          python -m game.main benchmark --steps 100 --seed 7 --agent rule
